@@ -3,18 +3,12 @@
   "version": "1.0.0",
   "description": "Discord bot that lets you take a full-page screenshot of any website",
   "main": "bot.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/StevenVeshkini/SSorBS.git"
   },
   "author": "Steven Veshkini",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/StevenVeshkini/SSorBS/issues"
-  },
   "homepage": "https://github.com/StevenVeshkini/SSorBS#readme",
   "dependencies": {
     "axios": "^0.19.2",
