@@ -18,7 +18,7 @@ const formatURL = url => {
 module.exports = {
   name: "ss",
   description: "Take a full-page screenshot of any website.",
-  cooldown: 1,
+  cooldown: 60,
   args: true,
   guildOnly: true,
   aliases: ["screenshot"],
