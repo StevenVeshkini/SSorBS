@@ -10,6 +10,6 @@ module.exports = {
   usage: "google.com",
   async execute(message, args) {
     const url = args[0];
-    await message.channel.send(`Taking a screenshot of ${url}.`);
+    await message.channel.send(`Taking a screenshot of ${url}. Please wait a moment.`);
   },
 };
