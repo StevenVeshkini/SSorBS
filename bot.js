@@ -74,6 +74,4 @@ client.on("message", async (message) => {
     }
 });
 
-(async () => {
-    await client.login(token);
-})();
+client.login(token);
