@@ -1,5 +1,7 @@
 {
 	"prefix": "!",
-	"token": "your-token-goes-here",
-	"lambdaURL": "https://123456789.execute-api.us-east-1.amazonaws.com/dev/endpoint"
+	"token": "your-discord-bot-token-goes-here",
+	"accessKeyId": "AWSAccessKeyId",
+	"secretAccessKey": "AWSAccessKeySecret",
+	"lambdaFunctionName": "ss-prod-screenshot"
 }

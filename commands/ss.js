@@ -1,5 +1,11 @@
-const { lambdaURL } = require("../config.json");
-const axios = require('axios').default;
+const { accessKeyId, secretAccessKey, lambdaFunctionName } = require("../config.json");
+const AWS = require("aws-sdk");
+AWS.config.update({
+  accessKeyId,
+  secretAccessKey,
+  region: "us-east-1",
+});
+const lambda = new AWS.Lambda();
 
 const formatURL = url => {
   // Checks if there is the 'http(s)://' protocol before the URL, and if not, adds it.
@@ -29,10 +35,19 @@ module.exports = {
     const screenshotURL = args[0];
 
     await message.channel.send(`Taking a screenshot of ${screenshotURL}. Please wait a moment.`);
-    await axios.post(lambdaURL, {
-        webhookURL: hook.url,
-        screenshotURL: formatURL(screenshotURL),
-        user: message.author.tag
-    });
+
+    const data = {
+      webhookURL: hook.url,
+      screenshotURL: formatURL(screenshotURL),
+      user: message.author.tag,
+    };
+    let params = {
+      FunctionName: lambdaFunctionName,
+      InvocationType: "Event",
+      Payload: JSON.stringify(data),
+    };
+
+    const result = await lambda.invoke(params).promise();
+    console.log(result);
   },
 };
