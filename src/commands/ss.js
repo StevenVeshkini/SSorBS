@@ -39,15 +39,16 @@ module.exports = {
     const data = {
       webhookURL: hook.url,
       screenshotURL: formatURL(screenshotURL),
-      user: message.author.tag,
+      user: message.author.id,
     };
+    console.log(data);
     let params = {
       FunctionName: lambdaFunctionName,
       InvocationType: "Event",
       Payload: JSON.stringify(data),
     };
 
-    const result = await lambda.invoke(params).promise();
-    console.log(result);
+    // const result = await lambda.invoke(params).promise();
+    // console.log(result);
   },
 };
