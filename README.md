@@ -4,9 +4,9 @@ Screenshot Bot is a Discord bot that lets you take a full page screenshot of any
 Invite Screenshot Bot to your server [here](https://discord.com/oauth2/authorize?client_id=720935079668613150&scope=bot&permissions=536872960).
 
 ## How it works
-Screenshot Bot is designed to be a scalable Discord bot. Discord bots must be run on a server to process messages (can use AWS EC2, AWS Lightsail, AWS Fargate, etc.) since there is no outgoing webhook for Discord events. Screenshot Bot is run on an AWS EC2 instance, using pm2 to make sure it restarts if it ever crashes. It does not store any state, which makes it easy to restart if crashed and simple to shard. 
+Screenshot Bot is designed to be a scalable Discord bot. Discord bots must be run on a server to process messages (can use AWS EC2, AWS Lightsail, AWS Fargate, etc.) since there is no outgoing webhook for Discord events. Screenshot Bot is run on an AWS EC2 instance, using [pm2](https://dev.to/rishabk7/host-your-discord-bot-on-ec2-instance-aws-5c07) to make sure it restarts if it ever crashes. It does not store any state, which makes it easy to restart if crashed and simple to shard. 
 
-Every time `!ss!` is run, it triggers an AWS Lambda function (see [this repository](https://github.com/StevenVeshkini/chrome-lambda-screenshot)) that opens up a Puppeteer instance, takes a screenshot of the page, and uses a webhook to send the screenshot back to the channel where `!ss!` was run.
+Every time `!ss` is run, it triggers an AWS Lambda function (see [this repository](https://github.com/StevenVeshkini/chrome-lambda-screenshot)) that opens up a Puppeteer instance, takes a screenshot of the page, and uses a webhook to send the screenshot back to the channel where `!ss` was run.
 
 ### Commands
 
