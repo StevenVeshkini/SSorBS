@@ -1,5 +1,6 @@
 # Sensitive Data
 config.json
+*.pem
 
 # Logs
 logs
