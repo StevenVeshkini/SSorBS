@@ -6,11 +6,11 @@
 
 const fs = require("fs");
 const Discord = require("discord.js");
-const { prefix, token } = require("./config.json");
+const { prefix, token } = require("../config.json");
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('./src/commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
@@ -35,6 +35,10 @@ client.on("message", async (message) => {
 
     if (command.guildOnly && message.channel.type !== "text") {
       return await message.reply("I can't execute that command inside DMs!");
+    }
+
+    if (command.ownerOnly && message.author.id !== message.guild.ownerID) {
+        return await message.reply("Only the guild owner can use this command.");
     }
 
     if (command.args && !args.length) {

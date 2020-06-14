@@ -1,4 +1,4 @@
-const { accessKeyId, secretAccessKey, lambdaFunctionName } = require("../config.json");
+const { accessKeyId, secretAccessKey, lambdaFunctionName } = require("../../config.json");
 const AWS = require("aws-sdk");
 AWS.config.update({
   accessKeyId,
@@ -27,10 +27,7 @@ module.exports = {
     const webhooks = await message.channel.fetchWebhooks();
     let hook = webhooks.find(hook => hook.name === 'Screenshot Bot');
     if (!hook) {
-        hook = await message.channel.createWebhook("Screenshot Bot", {
-          avatar: "https://i.imgur.com/qT9DD0T.png",
-          reason: "Used to post screenshots to the channel.",
-        });
+        return await message.channel.send('Screenshot Bot is not enabled in this channel. Please enable it by using the !ssenable command.');
     }
     const screenshotURL = args[0];
 
@@ -41,14 +38,12 @@ module.exports = {
       screenshotURL: formatURL(screenshotURL),
       user: message.author.id,
     };
-    console.log(data);
     let params = {
       FunctionName: lambdaFunctionName,
       InvocationType: "Event",
       Payload: JSON.stringify(data),
     };
 
-    // const result = await lambda.invoke(params).promise();
-    // console.log(result);
+    const result = await lambda.invoke(params).promise();
   },
 };

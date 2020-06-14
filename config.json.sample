@@ -3,5 +3,5 @@
 	"token": "your-discord-bot-token-goes-here",
 	"accessKeyId": "AWSAccessKeyId",
 	"secretAccessKey": "AWSAccessKeySecret",
-	"lambdaFunctionName": "ss-prod-screenshot"
+	"lambdaFunctionName": "service-stage-function"
 }

@@ -1,4 +1,4 @@
-const { prefix } = require("../config.json");
+const { prefix } = require("../../config.json");
 
 module.exports = {
   name: "sshelp",
@@ -12,7 +12,7 @@ module.exports = {
       data.push("Here's a list of all my commands:");
       data.push(commands.map((command) => command.name).join(", "));
       data.push(
-        `\nYou can send \`${prefix}ssbot [command name]\` to get info on a specific command!`
+        `\nYou can send \`${prefix}sshelp [command name]\` to get info on a specific command!`
       );
 
       try {
