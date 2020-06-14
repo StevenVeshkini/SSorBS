@@ -10,12 +10,12 @@ Every time `!ss` is run, it triggers an AWS Lambda function (see [this repositor
 
 ### Commands
 
-#### `!!ssenable`
+#### `!ssenable`
 Used to enable Screenshot Bot in a specific channel.
 
 <img src="https://github.com/StevenVeshkini/SSorBS/blob/master/images/ssenable.png" width="50%" height="50%">
 
-#### `!!ss`
+#### `!ss`
 Used to take a screenshot.
 
 ##### Normal webpage
@@ -28,7 +28,7 @@ Some webpages are long, and the text gets difficult to read the longer they are.
 
 <img src="https://github.com/StevenVeshkini/SSorBS/blob/master/images/sscomplicated.png" width="50%" height="50%">
 
-#### `!!ssdisable`
+#### `!ssdisable`
 Used to disable Screenshot Bot in a specific channel. 
 
 <img src="https://github.com/StevenVeshkini/SSorBS/blob/master/images/ssdisable.png" width="50%" height="50%">
